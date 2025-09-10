@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f8f8;
+    }
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    .item-info {
+      display: flex;
+      align-items: center;
+    }
+    .item-details {
+      flex: 1;
+    }
+    .quantity {
+      width: 50px;
+    }
+    .total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .remove-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="total-price">Total: $0.00</div>
+  </div>
+
+  <script>
+    const cart = [
+      {
+        id: 1,
+        name: "Wireless Headphones",
+        price: 49.99,
+        image: "C:/Users/hctiw/OneDrive/Attachments/Desktop/shoppping_web/headphone.jpg",
+        quantity: 1
+      },
+      {
+        id: 2,
+        name: "Smartwatch",
+        price: 89.99,
+        image: "C:/Users/hctiw/OneDrive/Attachments/Desktop/shoppping_web/smartwatch.jpg",
+        quantity: 2
+      }
+    ];
+
+    function renderCart() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <div class="item-info">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-details">
+              <strong>${item.name}</strong><br>
+              $${item.price.toFixed(2)} x 
+              <input type="number" class="quantity" value="${item.quantity}" min="1" data-id="${item.id}">
+            </div>
+          </div>
+          <div>
+            $${itemTotal.toFixed(2)} <br>
+            <button class="remove-btn" data-id="${item.id}">Remove</button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      document.getElementById('total-price').textContent = `Total: $${total.toFixed(2)}`;
+
+      // Update quantity
+      document.querySelectorAll('.quantity').forEach(input => {
+        input.addEventListener('change', (e) => {
+          const id = parseInt(e.target.getAttribute('data-id'));
+          const newQty = parseInt(e.target.value);
+          const item = cart.find(i => i.id === id);
+          if (item && newQty > 0) {
+            item.quantity = newQty;
+            renderCart();
+          }
+        });
+      });
+
+      // Remove item
+      document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const id = parseInt(e.target.getAttribute('data-id'));
+          const index = cart.findIndex(i => i.id === id);
+          if (index !== -1) {
+            cart.splice(index, 1);
+            renderCart();
+          }
+        });
+      });
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f8f8;
+    }
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    .item-info {
+      display: flex;
+      align-items: center;
+    }
+    .item-details {
+      flex: 1;
+    }
+    .quantity {
+      width: 50px;
+    }
+    .total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .remove-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="total-price">Total: $0.00</div>
+  </div>
+
+  <script>
+    const cart = [
+      {
+        id: 1,
+        name: "Wireless Headphones",
+        price: 49.99,
+        image: "C:\Users\hctiw\OneDrive\Attachments\Desktop\shoppping_web\headphone.jpg",
+        quantity: 1
+      },
+      {
+        id: 2,
+        name: "Smartwatch",
+        price: 89.99,
+        image: "C:\Users\hctiw\OneDrive\Attachments\Desktop\shoppping_web\smartwatch.jpg",
+        quantity: 2
+      }
+    ];
+
+    function renderCart() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <div class="item-info">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-details">
+              <strong>${item.name}</strong><br>
+              $${item.price.toFixed(2)} x 
+              <input type="number" class="quantity" value="${item.quantity}" min="1" data-id="${item.id}">
+            </div>
+          </div>
+          <div>
+            $${itemTotal.toFixed(2)} <br>
+            <button class="remove-btn" data-id="${item.id}">Remove</button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      document.getElementById('total-price').textContent = `Total: $${total.toFixed(2)}`;
+
+      // Update quantity
+      document.querySelectorAll('.quantity').forEach(input => {
+        input.addEventListener('change', (e) => {
+          const id = parseInt(e.target.getAttribute('data-id'));
+          const newQty = parseInt(e.target.value);
+          const item = cart.find(i => i.id === id);
+          if (item && newQty > 0) {
+            item.quantity = newQty;
+            renderCart();
+          }
+        });
+      });
+
+      // Remove item
+      document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const id = parseInt(e.target.getAttribute('data-id'));
+          const index = cart.findIndex(i => i.id === id);
+          if (index !== -1) {
+            cart.splice(index, 1);
+            renderCart();
+          }
+        });
+      });
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

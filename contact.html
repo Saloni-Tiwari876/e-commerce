@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - FashionHub</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .contact-section {
+      padding: 60px 0;
+    }
+    .contact-info {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    iframe {
+      border-radius: 8px;
+      border: 0;
+      width: 100%;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+    
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">ShopSphere</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="./grocery.html">Grocery</a></li>
+        <li class="nav-item"><a class="nav-link" href="./elex.html">Electronics</a></li>
+         <li class="nav-item"><a class="nav-link " href="./about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="./registration.html">Registration</a></li>
+        <li class="nav-item">
+          <a href="cart.html" class="btn btn-success ms-3">
+            <i class="bi bi-cart"></i> cart
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="contact-section" style="background: url('./images/contact.jpg'); background-size: cover;">
+  <div class="container">
+    <h2 class="text-center mb-5" style="color: white;">Get In Touch</h2>
+    <div class="row g-4">
+      
+      <!-- Contact Info -->
+      <div class="col-md-5">
+        <div class="contact-info">
+          <h4>Contact Information</h4>
+          <p><i class="fas fa-map-marker-alt me-2"></i>123, xyz , Lucknow</p>
+          <p><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</p>
+          <p><i class="fas fa-envelope me-2"></i>hopsphere@gmail.com</p>
+          <hr />
+          <h5>Our Working Hours</h5>
+          <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+          <p>Sat: 10:00 AM - 4:00 PM</p>
+          <p>Sun: Closed</p>
+        </div>
+        
+        <div class="mt-4">
+          <h4>Our Location</h4>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227822.60372138914!2d80.77769837738036!3d26.848596481072693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1753698638124!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-md-7">
+        <div class="contact-form">
+          <h4>Send Us a Message</h4>
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your full name" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" placeholder="Subject of your message" />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary px-4">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <!-- Footer -->
+<footer class="footer mt-5">
+  <div class="container text-center">
+    <p>&copy; 2025 ShopSphere. All rights reserved.</p>
+    <div class="mt-3">
+      <a href="#" class="me-3">Privacy Policy</a>
+      <a href="#" class="me-3">Terms</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+</footer>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
